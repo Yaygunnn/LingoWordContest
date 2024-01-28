@@ -20,6 +20,7 @@ public class WordData
     public void SetWord(string word)
     {
         this.word = word;
+        SetLetterNumber();
     }
 
     public string GetWord()
@@ -27,9 +28,9 @@ public class WordData
         return word;
     }
 
-    public void SetLetterNumber(int letterNumber)
+    private void SetLetterNumber()
     {
-        this.LetterNumber = letterNumber;
+        this.LetterNumber = word.Length;
     }
 
 }
