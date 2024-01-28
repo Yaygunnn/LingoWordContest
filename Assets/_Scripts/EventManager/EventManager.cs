@@ -8,7 +8,7 @@ public class EventManager : MonoBehaviour
     public static EventManager Instance { get; private set; }
 
 
-    public event Action<int> SelectLetterNumberClicked;
+    public event Action<int> EventSelectLetterNumber;
     private void Awake()
     {
         Instance = this;
@@ -17,7 +17,7 @@ public class EventManager : MonoBehaviour
 
     public void SelectLetterNumber(int letterNumber)
     {
-        SelectLetterNumberClicked?.Invoke(letterNumber);
+        EventSelectLetterNumber?.Invoke(letterNumber);
     }
     
 }
