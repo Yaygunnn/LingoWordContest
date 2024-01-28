@@ -27,6 +27,7 @@ public class WordSelectorController : MonoBehaviour
             {
                 string word = SelectRandomWord(lines);
                 SendWordData( word);
+                FireEventWordSelected();
             }
         }
     }
@@ -67,5 +68,10 @@ public class WordSelectorController : MonoBehaviour
         }
         Debug.Log("No File Path In Dictionary");
         return false;
+    }
+
+    private void FireEventWordSelected()
+    {
+        EventManager.Instance.WordSelected();
     }
 }
