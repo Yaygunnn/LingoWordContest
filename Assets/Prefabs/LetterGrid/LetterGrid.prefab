@@ -56,6 +56,8 @@ MonoBehaviour:
   SecondGridCell: {fileID: 5045943640585833717}
   DistanceBetweenCells: 0
   WordLength: 0
+  GridHight: 0
+  CellScale: {x: 0, y: 0, z: 0}
 --- !u!114 &7490705234660890486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0e23a394404324ba98f4739cc50c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 5751412157570812413}
 --- !u!1001 &5300513078730519852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8196830556847452907, guid: c7a622189a142da44bed067332964bed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -116
+      value: 210
       objectReference: {fileID: 0}
     - target: {fileID: 8196830556847452907, guid: c7a622189a142da44bed067332964bed, type: 3}
       propertyPath: m_LocalPosition.y

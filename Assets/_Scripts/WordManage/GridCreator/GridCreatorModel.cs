@@ -11,5 +11,9 @@ public class GridCreatorModel : MonoBehaviour
     [HideInInspector] public float DistanceBetweenCells;
 
     [HideInInspector] public int WordLength;
+
+    [HideInInspector] public int GridHight;
+
+    [HideInInspector] public Vector3 CellScale;
     
 }
