@@ -8,7 +8,7 @@ public class LetterCellController : MonoBehaviour
 
     private void Start()
     {
-        WriteLetter('a');
+        SetGridState(E_CellState.Standart);
     }
     public void WriteLetter(char letter)
     {
@@ -17,11 +17,27 @@ public class LetterCellController : MonoBehaviour
 
     public void SetGridState(E_CellState cellState)
     {
-        /*switch (cellState)
+        switch (cellState)
         {
             case E_CellState.Standart:
-        
-        }*/
+                ChangeColor(model.StandartMaterial); 
+                break;
+            case E_CellState.True:
+                ChangeColor(model.TrueMaterial);
+                break;
+            case E_CellState.False:
+                ChangeColor(model.FalseMaterial);
+                break;
+            case E_CellState.MissPlaced:
+                ChangeColor(model.MissPlaceMaterial); 
+                break;
+            default:
+                break;        
+        }
     }
     
+    private void ChangeColor(Material material)
+    {
+        model.image.material = material;
+    }
 }
