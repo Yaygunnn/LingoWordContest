@@ -27,10 +27,10 @@ public class GridCreatorController : MonoBehaviour
         model.DistanceBetweenCells = model.FirstGridCell.transform.localPosition.x - model.SecondGridCell.transform.localPosition.x;
 
         model.CellScale = model.FirstGridCell.transform.localScale;
-        
-        model.WordLength = 5;// must be change later
 
-        model.GridHight = 5;//must be change later
+        model.WordLength = WordData.Instance.LetterNumber;
+
+        model.GridHight = GameConstans.GridHight;
 
         Debug.Log(model.DistanceBetweenCells);
         /*Debug.Log(model.CellScale);
