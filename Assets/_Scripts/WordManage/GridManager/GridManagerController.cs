@@ -12,4 +12,9 @@ public class GridManagerController : MonoBehaviour
     {
         Instance = this;
     }
+
+    public void SetGridCell(LetterCellController letterCellController, int xLeftToRight, int yTopToBottom)
+    {
+        model.LetterGrid[xLeftToRight, yTopToBottom] = letterCellController;
+    }
 }

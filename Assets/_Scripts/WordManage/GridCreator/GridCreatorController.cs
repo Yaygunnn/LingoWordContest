@@ -42,6 +42,8 @@ public class GridCreatorController : MonoBehaviour
             {
                 GameObject LetterCell = Instantiate(model.FirstGridCell, gameObject.transform);
                 SetCellTransform(LetterCell, i, k);
+
+                AddToGridManagerLetterGrid(LetterCell, i, k);
             }
         }
     }
@@ -63,5 +65,11 @@ public class GridCreatorController : MonoBehaviour
     {
         Destroy(model.FirstGridCell);
         Destroy(model.SecondGridCell);
+    }
+
+    private void AddToGridManagerLetterGrid(GameObject LetterCell, int xLeftToRight, int yTopToBottom)
+    {
+        LetterCellController letterCellController = LetterCell.GetComponent<LetterCellController>();
+        GridManagerController.Instance.SetGridCell(letterCellController, xLeftToRight, yTopToBottom);
     }
 }
