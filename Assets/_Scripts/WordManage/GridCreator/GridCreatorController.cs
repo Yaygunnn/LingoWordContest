@@ -24,18 +24,13 @@ public class GridCreatorController : MonoBehaviour
     }
     public void CalculateModelValues()
     {
-        model.DistanceBetweenCells = model.FirstGridCell.transform.localPosition.x - model.SecondGridCell.transform.localPosition.x;
+        model.DistanceBetweenCells = model.SecondGridCell.transform.localPosition.x - model.FirstGridCell.transform.localPosition.x;
 
         model.CellScale = model.FirstGridCell.transform.localScale;
 
         model.WordLength = WordData.Instance.LetterNumber;
 
-        model.GridHight = GameConstans.GridHight;
-
-        Debug.Log(model.DistanceBetweenCells);
-        /*Debug.Log(model.CellScale);
-        Debug.Log(model.WordLength);
-        Debug.Log(model.GridHight);*/
+        model.GridHight = GameConstans.GridHight;        
     }
 
     
@@ -60,9 +55,8 @@ public class GridCreatorController : MonoBehaviour
     private Vector3 CalculatePosition(int x, int y)
     {
         Vector3 pos = Vector3.zero;
-        pos.x = /*(model.WordLength - 1) **/ model.DistanceBetweenCells * (x - model.WordLength / 2);
-        pos.y =/* (model.GridHight - 1) **/ model.DistanceBetweenCells * (model.GridHight / 2 - y);
-        Debug.Log(pos.x);
+        pos.x = model.DistanceBetweenCells * (x + 0.5f - (float)model.WordLength / 2);
+        pos.y = model.DistanceBetweenCells * ((float)model.GridHight / 2 - y - 0.5f);
         return pos;
     }
     private void DestroyFirstandSecondGridCells()
