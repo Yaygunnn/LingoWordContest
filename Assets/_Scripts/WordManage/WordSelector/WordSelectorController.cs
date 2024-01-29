@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Linq;
 
 public class WordSelectorController : MonoBehaviour
 {
@@ -27,11 +28,16 @@ public class WordSelectorController : MonoBehaviour
             {
                 string word = SelectRandomWord(lines);
                 SendWordData( word);
+                SendWordList(lines);
                 FireEventWordSelected();
             }
         }
     }
 
+    private void SendWordList(string[] AllWords)
+    {
+        WordData.Instance.SetWordList(AllWords.ToList());
+    }
     private void SendWordData( string word)
     {
         WordData.Instance.SetWord(word);
