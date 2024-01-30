@@ -11,6 +11,8 @@ public class EventManager : MonoBehaviour
     public event Action<int> EventSelectLetterNumber;
 
     public event Action EventWordSelected;
+
+    public event Action<string> EventWordInputGiven;
     private void Awake()
     {
         Instance = this;
@@ -25,6 +27,11 @@ public class EventManager : MonoBehaviour
     public void WordSelected()
     {
         EventWordSelected?.Invoke();
+    }
+
+    public void WordInputGiven(string word)
+    {
+        EventWordInputGiven?.Invoke(word);
     }
     
 }

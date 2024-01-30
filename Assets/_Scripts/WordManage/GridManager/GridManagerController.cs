@@ -13,8 +13,21 @@ public class GridManagerController : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        EventManager.Instance.EventWordInputGiven += WriteWordToGrid;
+    }
+
     public void SetGridCell(LetterCellController letterCellController, int xLeftToRight, int yTopToBottom)
     {
         model.LetterGrid[xLeftToRight, yTopToBottom] = letterCellController;
+    }
+
+    private void WriteWordToGrid(string word)
+    {
+        for(int letter = 0; letter < word.Length; letter++)
+        {
+            model.LetterGrid[model.CurrentGridLine, letter].WriteLetter(word[letter]);
+        }
     }
 }
