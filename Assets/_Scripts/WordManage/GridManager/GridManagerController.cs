@@ -20,7 +20,7 @@ public class GridManagerController : MonoBehaviour
 
     public void SetGridCell(LetterCellController letterCellController, int xLeftToRight, int yTopToBottom)
     {
-        model.LetterGrid[xLeftToRight, yTopToBottom] = letterCellController;
+        model.LetterGrid[yTopToBottom, xLeftToRight] = letterCellController;
     }
 
     private void WriteWordToGrid(string word)
