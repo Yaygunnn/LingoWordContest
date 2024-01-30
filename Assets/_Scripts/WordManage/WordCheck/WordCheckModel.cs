@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class WordCheckModel : MonoBehaviour
 {
-    
+    public List<string> PreviousWordTrys = new List<string>();
 }

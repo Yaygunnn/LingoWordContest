@@ -17,7 +17,7 @@ public class WordCheckController : MonoBehaviour
     {
         if (!IsValidTry(tryWord))
         {
-            return E_WordAnswer.OutOfList;
+            return E_WordAnswer.Fail;
         }
 
         if (tryWord == WordData.Instance.GetWord())
@@ -25,6 +25,7 @@ public class WordCheckController : MonoBehaviour
             return E_WordAnswer.Correct;
         }
 
+        model.PreviousWordTrys.Add(tryWord);
         return E_WordAnswer.TryAgain;
 
     }
@@ -32,6 +33,10 @@ public class WordCheckController : MonoBehaviour
     private bool IsValidTry(string tryWord)
     {
         if(!WordData.Instance.WordList.Contains(tryWord))
+        {
+            return false;
+        }
+        if(model.PreviousWordTrys.Contains(tryWord))
         {
             return false;
         }
