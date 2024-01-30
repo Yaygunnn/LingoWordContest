@@ -12,7 +12,7 @@ public class LetterCellController : MonoBehaviour
     }
     public void WriteLetter(char letter)
     {
-        model.textMestPro.text = letter.ToString();
+        model.textMestPro.text = letter.ToString().ToUpper();
     }
 
     public void SetGridState(E_CellState cellState)
