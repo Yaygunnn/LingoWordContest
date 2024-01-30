@@ -53,7 +53,7 @@ public class GridManagerController : MonoBehaviour
 
     private void SetGridRowCellStateInfo(string word)
     {
-        E_CellState[] CellStates = WordCheckController.RecieveVisualInfo(word);
+        E_CellState[] CellStates = WordCheckController.Instance.RecieveVisualInfo(word);
         for (int letter = 0; letter < word.Length; letter++)
         {
             model.LetterGrid[model.CurrentGridLine, letter].cellState = CellStates[letter];

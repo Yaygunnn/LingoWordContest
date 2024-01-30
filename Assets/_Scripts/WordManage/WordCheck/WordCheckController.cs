@@ -43,18 +43,28 @@ public class WordCheckController : MonoBehaviour
         return true;
     }
 
-    public static E_CellState[] RecieveVisualInfo(string tryWord)
+    public E_CellState[] RecieveVisualInfo(string tryWord)
     {
         E_CellState[] LetterCellStates = new E_CellState[tryWord.Length];
         List<char> charList = WordData.Instance.GetWord().ToList();
+        List<int> UnknownLetters = Enumerable.Range(0, tryWord.Length).ToList();
+        List<int> RemoveList = new List<int>();
 
-        for(int letter = 0 ; letter < tryWord.Length; letter++)
+        foreach (int letter in UnknownLetters)
         {
             if (tryWord[letter] == WordData.Instance.GetWord()[letter])
             {
                 LetterCellStates[letter] = E_CellState.True;
-                charList.RemoveAt(letter);
-            }else if (charList.Contains(tryWord[letter]))
+                charList.Remove(tryWord[letter]);
+                RemoveList.Add(letter);
+            }
+        }
+
+        UnknownLetters = UnknownLetters.Except(RemoveList).ToList();
+
+        foreach (int letter in UnknownLetters)
+        {
+            if (charList.Contains(tryWord[letter]))
             {
                 LetterCellStates[letter] = E_CellState.MissPlaced;
                 charList.Remove(tryWord[letter]);
@@ -65,7 +75,8 @@ public class WordCheckController : MonoBehaviour
             }
 
         }
-
         return LetterCellStates;
     }
+
+    
 }
