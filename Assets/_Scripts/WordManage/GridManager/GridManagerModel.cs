@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridManagerModel : MonoBehaviour
 {
-    [HideInInspector] public LetterCellController[,] LetterGrid = new LetterCellController[GameConstans.GridHight, WordData.Instance.LetterNumber];
+    [HideInInspector] public S_LetterCell[,] LetterGrid = new S_LetterCell[GameConstans.GridHight, WordData.Instance.LetterNumber];
 
     [HideInInspector] public int CurrentGridLine;
 }

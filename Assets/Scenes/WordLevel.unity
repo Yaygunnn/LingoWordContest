@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: 776185267}
   - component: {fileID: 776185269}
   - component: {fileID: 776185268}
+  - component: {fileID: 776185270}
   m_Layer: 0
   m_Name: GridManager
   m_TagString: Untagged
@@ -454,6 +455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 776185269}
+  view: {fileID: 776185270}
 --- !u!114 &776185269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,6 +469,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentGridLine: 0
+--- !u!114 &776185270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776185266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fab9edda23462946a8add69cd07f771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 776185268}
+  model: {fileID: 776185269}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

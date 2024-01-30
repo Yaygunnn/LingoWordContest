@@ -5,6 +5,7 @@ using UnityEngine;
 public class GridManagerController : MonoBehaviour
 {
     [SerializeField] private GridManagerModel model;
+    [SerializeField] private GridManagerView view;
 
     public static GridManagerController Instance { get; private set; }
 
@@ -15,19 +16,47 @@ public class GridManagerController : MonoBehaviour
 
     private void Start()
     {
-        EventManager.Instance.EventWordInputGiven += WriteWordToGrid;
+        EventManager.Instance.EventWordInputGiven += WriteNewWordToGrid;
     }
 
     public void SetGridCell(LetterCellController letterCellController, int xLeftToRight, int yTopToBottom)
     {
-        model.LetterGrid[yTopToBottom, xLeftToRight] = letterCellController;
+        model.LetterGrid[yTopToBottom, xLeftToRight].controller = letterCellController;
     }
 
-    private void WriteWordToGrid(string word)
+    private void WriteNewWordToGrid(string word)
     {
-        for(int letter = 0; letter < word.Length; letter++)
+        WriteRow(word);
+
+        SetGridRowLetterInfo(word);
+        SetGridRowCellStateInfo(word);
+
+        view.PaintGridRowWithAnim(model.CurrentGridLine);
+    }
+
+
+    private void WriteRow(string word)
+    {
+        for (int letter = 0; letter < word.Length; letter++)
         {
-            model.LetterGrid[model.CurrentGridLine, letter].WriteLetter(word[letter]);
+            model.LetterGrid[model.CurrentGridLine, letter].controller.WriteLetter(word[letter]);
+        }
+    }
+
+    private void SetGridRowLetterInfo(string word)
+    {
+        for (int letter = 0; letter < word.Length; letter++)
+        {
+            model.LetterGrid[model.CurrentGridLine, letter].letter = word[letter];
+        }
+    }
+
+    private void SetGridRowCellStateInfo(string word)
+    {
+        E_CellState[] CellStates = WordCheckController.RecieveVisualInfo(word);
+        for (int letter = 0; letter < word.Length; letter++)
+        {
+            model.LetterGrid[model.CurrentGridLine, letter].cellState = CellStates[letter];
         }
     }
 }
