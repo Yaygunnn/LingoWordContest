@@ -59,13 +59,15 @@ public class GridManagerView : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(viewModel.PaintRowWaitTimeEnd);
 
-        controller.FinishedWriting();
+        controller.FinishedPaintingRow();
     }
 
     private IEnumerator PaintFirstLetter()
     {
         model.LetterGrid[model.CurrentGridLine, 0].controller.WriteAndShowState(WordData.Instance.GetWord()[0]);
         yield return new WaitForSecondsRealtime(viewModel.WaitTimeAfterFirstLetter);
+        
+        controller.FinishedPaintingFirstLetter();
     }
        
 }

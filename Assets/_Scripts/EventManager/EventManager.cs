@@ -13,11 +13,29 @@ public class EventManager : MonoBehaviour
     public event Action EventWordSelected;
 
     public event Action<string> EventWordInputGiven;
+
+    public event Action EventStartPlayerTurn;
+
+    public event Action EventPrepareNextTurn;
+
+    public event Action EventEndOfTurn;
     private void Awake()
     {
         Instance = this;
     }
-    
+
+    public void EndOfTurn()
+    {
+        EventEndOfTurn?.Invoke();
+    }
+    public void PrepareNextTurn()
+    {
+        EventPrepareNextTurn?.Invoke();
+    }
+    public void StartPlayerTurn()
+    {
+        EventStartPlayerTurn?.Invoke();
+    }
 
     public void SelectLetterNumber(int letterNumber)
     {

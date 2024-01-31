@@ -17,6 +17,7 @@ public class GridManagerController : MonoBehaviour
     private void Start()
     {
         EventManager.Instance.EventWordInputGiven += WriteNewWordToGrid;
+        EventManager.Instance.EventPrepareNextTurn += ShowFirstLetter;
     }
 
     public void SetGridCell(LetterCellController letterCellController, int xLeftToRight, int yTopToBottom)
@@ -45,10 +46,15 @@ public class GridManagerController : MonoBehaviour
         view.PaintGridRowWithAnim(model.CurrentGridLine);
     }
 
-    public void FinishedWriting()
+    public void FinishedPaintingRow()
     {
         GoNextGridLine();
-        ShowFirstLetter();
+        EventManager.Instance.EndOfTurn();
+    }
+
+    public void FinishedPaintingFirstLetter()
+    {
+        EventManager.Instance.StartPlayerTurn();
     }
 
 
@@ -107,5 +113,11 @@ public class GridManagerController : MonoBehaviour
     {
         model.LetterGrid[row, col].cellState = E_CellState.Standart;
         model.LetterGrid[row, col].letter = ' ';
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.EventWordInputGiven -= WriteNewWordToGrid;
+        EventManager.Instance.EventPrepareNextTurn -= ShowFirstLetter;
     }
 }
