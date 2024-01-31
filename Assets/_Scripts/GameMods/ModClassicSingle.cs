@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class ModClassicSingle : MonoBehaviour
@@ -16,6 +17,7 @@ public class ModClassicSingle : MonoBehaviour
     void Start()
     {
         EventManager.Instance.EventEndOfTurn += DecideEndOfTurn;
+        Invoke("GoNextTurn", 0.5f);
     }
 
     // Update is called once per frame
@@ -26,6 +28,26 @@ public class ModClassicSingle : MonoBehaviour
 
     private void DecideEndOfTurn()
     {
+        if(HaveTrialAttempts())
+        {
+            GoNextTurn();
+            return;
+        }
+        Defeat();
+    }
+
+    private void Defeat()
+    {
+        Debug.Log("Defeat");
+    }
+    private bool HaveTrialAttempts()
+    {
+        return model.TrialAttempts != 0;
+    }
+
+    private void GoNextTurn()
+    {
+        model.TrialAttempts--;
         EventManager.Instance.PrepareNextTurn();
     }
 
