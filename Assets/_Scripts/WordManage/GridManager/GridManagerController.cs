@@ -24,13 +24,19 @@ public class GridManagerController : MonoBehaviour
         model.LetterGrid[yTopToBottom, xLeftToRight].controller = letterCellController;
     }
 
-    private void WriteNewWordToGrid(string word)
+    private void ShowFirstLetter()
     {
-        if(model.ReachedEndOfGrid)
+        if (model.ReachedEndOfGrid)
         {
             CarryGridOneLineUp();
             view.ShowGridHasBeenCarriedOneLineUp();
         }
+        view.ShowFirstLetter();
+    }
+
+    private void WriteNewWordToGrid(string word)
+    {
+       
         WriteRow(word);
 
         SetGridRowLetterInfo(word);
@@ -42,6 +48,7 @@ public class GridManagerController : MonoBehaviour
     public void FinishedWriting()
     {
         GoNextGridLine();
+        ShowFirstLetter();
     }
 
 

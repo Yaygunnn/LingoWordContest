@@ -18,6 +18,10 @@ public class GridManagerView : MonoBehaviour
         
     }
 
+    public void ShowFirstLetter()
+    {
+        StartCoroutine(PaintFirstLetter());
+    }
     public void ShowGridHasBeenCarriedOneLineUp()
     {
         for(int x = 0; x < model.LetterGrid.GetLength(0);x++)
@@ -57,4 +61,11 @@ public class GridManagerView : MonoBehaviour
 
         controller.FinishedWriting();
     }
+
+    private IEnumerator PaintFirstLetter()
+    {
+        model.LetterGrid[model.CurrentGridLine, 0].controller.WriteAndShowState(WordData.Instance.GetWord()[0]);
+        yield return new WaitForSecondsRealtime(viewModel.WaitTimeAfterFirstLetter);
+    }
+       
 }

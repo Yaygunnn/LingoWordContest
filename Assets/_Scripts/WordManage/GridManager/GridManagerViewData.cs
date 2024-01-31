@@ -9,4 +9,6 @@ public class GridManagerViewModel
     public float PaintRowWaitTimeEveryLetter = 0.15f;
 
     public float PaintRowWaitTimeEnd = 1;
+
+    public float WaitTimeAfterFirstLetter = 0.5f;
 }
