@@ -7,4 +7,6 @@ public class GridManagerModel : MonoBehaviour
     [HideInInspector] public S_LetterCell[,] LetterGrid = new S_LetterCell[GameConstans.GridHight, WordData.Instance.LetterNumber];
 
     [HideInInspector] public int CurrentGridLine;
+
+    [HideInInspector] public bool ReachedEndOfGrid;
 }

@@ -34,6 +34,11 @@ public class GridManagerController : MonoBehaviour
         view.PaintGridRowWithAnim(model.CurrentGridLine);
     }
 
+    public void FinishedWriting()
+    {
+        GoNextGridLine();
+    }
+
 
     private void WriteRow(string word)
     {
@@ -59,4 +64,16 @@ public class GridManagerController : MonoBehaviour
             model.LetterGrid[model.CurrentGridLine, letter].cellState = CellStates[letter];
         }
     }
+
+    private void GoNextGridLine()
+    {
+        model.CurrentGridLine++;
+        if (model.CurrentGridLine == GameConstans.GridHight)
+        {
+            model.CurrentGridLine--;
+            model.ReachedEndOfGrid = true;
+        }
+    }
+
+    
 }

@@ -44,5 +44,7 @@ public class GridManagerView : MonoBehaviour
         }
 
         yield return new WaitForSecondsRealtime(viewModel.PaintRowWaitTimeEnd);
+
+        controller.FinishedWriting();
     }
 }
