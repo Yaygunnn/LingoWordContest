@@ -15,6 +15,11 @@ public class LetterCellController : MonoBehaviour
         model.textMestPro.text = letter.ToString().ToUpper();
     }
 
+    public void SetLetterCellFast(E_CellState state, char letter)
+    {
+        WriteLetter(letter);
+        SetGridState(state);
+    }
     public void SetGridState(E_CellState cellState)
     {
         switch (cellState)

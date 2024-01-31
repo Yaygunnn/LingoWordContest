@@ -26,6 +26,11 @@ public class GridManagerController : MonoBehaviour
 
     private void WriteNewWordToGrid(string word)
     {
+        if(model.ReachedEndOfGrid)
+        {
+            CarryGridOneLineUp();
+            view.ShowGridHasBeenCarriedOneLineUp();
+        }
         WriteRow(word);
 
         SetGridRowLetterInfo(word);
@@ -75,5 +80,25 @@ public class GridManagerController : MonoBehaviour
         }
     }
 
-    
+    private void CarryGridOneLineUp()
+    {
+        for (int row = 0; row < GameConstans.GridHight - 1; row++) 
+        {
+            for(int col = 0; col < model.LetterGrid.GetLength(1); col++)
+            {
+                model.LetterGrid[row, col].cellState = model.LetterGrid[row + 1, col].cellState;
+                model.LetterGrid[row, col].letter = model.LetterGrid[row + 1, col].letter;
+            }
+        }
+        for (int col = 0; col < model.LetterGrid.GetLength(1); col++)
+        {
+            EmptyCell(model.CurrentGridLine, col);
+        }
+    }
+
+    private void EmptyCell(int row, int col)
+    {
+        model.LetterGrid[row, col].cellState = E_CellState.Standart;
+        model.LetterGrid[row, col].letter = ' ';
+    }
 }

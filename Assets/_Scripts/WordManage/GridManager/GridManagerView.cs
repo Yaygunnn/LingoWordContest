@@ -18,6 +18,16 @@ public class GridManagerView : MonoBehaviour
         
     }
 
+    public void ShowGridHasBeenCarriedOneLineUp()
+    {
+        for(int x = 0; x < model.LetterGrid.GetLength(0);x++)
+        {
+            for(int y = 0; y< model.LetterGrid.GetLength(1); y++)
+            {
+                model.LetterGrid[x, y].controller.SetLetterCellFast(model.LetterGrid[x, y].cellState, model.LetterGrid[x, y].letter);
+            }
+        }
+    }
     public void PaintGridRowWithAnim( int GridRow)
     {
         StartCoroutine(PaintGridRowIEnumerator(GridRow));
