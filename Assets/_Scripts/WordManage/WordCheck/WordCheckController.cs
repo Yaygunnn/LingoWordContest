@@ -13,7 +13,19 @@ public class WordCheckController : MonoBehaviour
     {
         Instance = this;
     }
-    public E_WordAnswer CheckWord(string tryWord)
+
+    private void Start()
+    {
+        EventManager.Instance.EventWordInputGiven += CheckWord;
+    }
+
+    private void CheckWord(string word)
+    {
+        model.wordAnswer = CheckAnswer(word);
+        model.e_CellStates = SetCellStates(word);
+        EventManager.Instance.WordRecieved(word);
+    }
+    private E_WordAnswer CheckAnswer(string tryWord)
     {
         if (!IsValidTry(tryWord))
         {
@@ -43,9 +55,18 @@ public class WordCheckController : MonoBehaviour
         return true;
     }
 
-    public E_CellState[] RecieveVisualInfo(string tryWord)
-    {
-        E_CellState[] LetterCellStates = new E_CellState[tryWord.Length];
+    private E_CellState[] SetCellStates(string tryWord)
+    {   
+        E_CellState[] LetterCellStates = new E_CellState[model.e_CellStates.Length];
+
+        if(model.wordAnswer==E_WordAnswer.Fail)
+        {
+            for(int i = 0; i<model.e_CellStates.Length; i++)
+            {
+                LetterCellStates[i] = E_CellState.False;
+            }
+            return LetterCellStates;
+        }
         List<char> charList = WordData.Instance.GetWord().ToList();
         List<int> UnknownLetters = Enumerable.Range(0, tryWord.Length).ToList();
         List<int> RemoveList = new List<int>();
@@ -78,5 +99,10 @@ public class WordCheckController : MonoBehaviour
         return LetterCellStates;
     }
 
-    
+    public E_CellState[] RecieveVisualInfo(string tryWord)
+    {
+        return model.e_CellStates;
+    }
+
+
 }
