@@ -23,6 +23,8 @@ public class EventManager : MonoBehaviour
     public event Action EventEndOfTurn;
 
     public event Action<string> EventWordInputGiven;
+
+    public event Action EventVictory;
     #endregion
 
     #region Funcs
@@ -65,6 +67,11 @@ public class EventManager : MonoBehaviour
     public void WordInputGiven(string word)
     {
         EventWordInputGiven?.Invoke(word);
+    }
+
+    public void Victory()
+    {
+        EventVictory?.Invoke();
     }
     #endregion
 

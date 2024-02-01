@@ -55,7 +55,7 @@ public class ModClassicSingle : MonoBehaviour
     }
     private void Victory()
     {
-        Debug.Log("Victory");
+        EventManager.Instance.Victory();
     }
     private void Defeat()
     {

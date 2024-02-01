@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class VictoryController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private VictoryView view;
     void Start()
     {
-        
+        EventManager.Instance.EventVictory += Victory;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        EventManager.Instance.EventVictory -= Victory;
+    }
+    private void Victory()
+    {
+        view.ShowVictory();
     }
 }
