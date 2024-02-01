@@ -25,6 +25,8 @@ public class EventManager : MonoBehaviour
     public event Action<string> EventWordInputGiven;
 
     public event Action EventVictory;
+
+    public event Action EventDefeat;
     #endregion
 
     #region Funcs
@@ -72,6 +74,11 @@ public class EventManager : MonoBehaviour
     public void Victory()
     {
         EventVictory?.Invoke();
+    }
+
+    public void Defeat()
+    {
+        EventDefeat?.Invoke();
     }
     #endregion
 

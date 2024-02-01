@@ -59,7 +59,7 @@ public class ModClassicSingle : MonoBehaviour
     }
     private void Defeat()
     {
-        Debug.Log("Defeat");
+        EventManager.Instance.Defeat();
     }
     private bool HaveTrialAttempts()
     {
