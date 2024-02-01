@@ -28,14 +28,35 @@ public class ModClassicSingle : MonoBehaviour
 
     private void DecideEndOfTurn()
     {
-        if(HaveTrialAttempts())
+        switch (EventManager.Instance.RecieveWordAnswer())
+        {
+            case E_WordAnswer.Correct:
+                Victory();
+                break;
+            case E_WordAnswer.TryAgain:
+                TryAgain();
+                break;
+            case E_WordAnswer.Fail:
+                Defeat();
+                break;
+            default:
+                break;
+        }        
+    }
+
+    private void TryAgain()
+    {
+        if (HaveTrialAttempts())
         {
             GoNextTurn();
             return;
         }
         Defeat();
     }
-
+    private void Victory()
+    {
+        Debug.Log("Victory");
+    }
     private void Defeat()
     {
         Debug.Log("Defeat");

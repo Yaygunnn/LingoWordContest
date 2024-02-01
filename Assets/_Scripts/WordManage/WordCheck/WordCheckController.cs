@@ -17,8 +17,19 @@ public class WordCheckController : MonoBehaviour
     private void Start()
     {
         EventManager.Instance.EventWordInputGiven += CheckWord;
+        EventManager.Instance.SetFuncRecieveWordAnswer(GetWordAnswer);
     }
 
+    private void OnDisable()
+    {
+        EventManager.Instance.EventWordInputGiven -= CheckWord;
+        EventManager.Instance.UnSetFuncRecieveWordAnswer(GetWordAnswer);
+    }
+
+    private E_WordAnswer GetWordAnswer()
+    {
+        return model.wordAnswer;
+    }
     private void CheckWord(string word)
     {
         model.wordAnswer = CheckAnswer(word);
