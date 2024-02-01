@@ -10,7 +10,7 @@ public class TimerController : MonoBehaviour
     
     void Start()
     {
-        EventManager.Instance.EventWordInputGiven += StopCoroutine;
+        EventManager.Instance.EventWordInputGiven += StopTimer;
         EventManager.Instance.EventStartPlayerTurn += StartTimer;
     }
 
@@ -19,7 +19,7 @@ public class TimerController : MonoBehaviour
         model.TimerCoroutine = StartCoroutine(Timer(model.CountDown));
     }
 
-    private void StopTimer()
+    private void StopTimer(string word)
     {
         StopCoroutine(model.TimerCoroutine);
     }
@@ -38,7 +38,7 @@ public class TimerController : MonoBehaviour
 
     private void OnDisable()
     {
-        EventManager.Instance.EventWordInputGiven -= StopCoroutine;
+        EventManager.Instance.EventWordInputGiven -= StopTimer;
         EventManager.Instance.EventStartPlayerTurn -= StartTimer;
     }
 }
