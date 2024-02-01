@@ -16,7 +16,7 @@ public class GridManagerController : MonoBehaviour
 
     private void Start()
     {
-        EventManager.Instance.EventWordInputGiven += WriteNewWordToGrid;
+        EventManager.Instance.EventWordRecieved += WriteNewWordToGrid;
         EventManager.Instance.EventPrepareNextTurn += ShowFirstLetter;
     }
 
@@ -117,7 +117,7 @@ public class GridManagerController : MonoBehaviour
 
     private void OnDisable()
     {
-        EventManager.Instance.EventWordInputGiven -= WriteNewWordToGrid;
+        EventManager.Instance.EventWordRecieved -= WriteNewWordToGrid;
         EventManager.Instance.EventPrepareNextTurn -= ShowFirstLetter;
     }
 }

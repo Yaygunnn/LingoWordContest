@@ -10,7 +10,7 @@ public class TimerController : MonoBehaviour
     
     void Start()
     {
-        EventManager.Instance.EventWordInputGiven += StopTimer;
+        EventManager.Instance.EventWordRecieved += StopTimer;
         EventManager.Instance.EventStartPlayerTurn += StartTimer;
     }
 
@@ -38,7 +38,7 @@ public class TimerController : MonoBehaviour
 
     private void OnDisable()
     {
-        EventManager.Instance.EventWordInputGiven -= StopTimer;
+        EventManager.Instance.EventWordRecieved -= StopTimer;
         EventManager.Instance.EventStartPlayerTurn -= StartTimer;
     }
 }

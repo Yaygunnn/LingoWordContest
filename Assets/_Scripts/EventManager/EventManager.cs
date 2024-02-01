@@ -12,13 +12,15 @@ public class EventManager : MonoBehaviour
 
     public event Action EventWordSelected;
 
-    public event Action<string> EventWordInputGiven;
+    public event Action<string> EventWordRecieved;
 
     public event Action EventStartPlayerTurn;
 
     public event Action EventPrepareNextTurn;
 
     public event Action EventEndOfTurn;
+
+    public event Action<string> EventWordInputGiven;
     private void Awake()
     {
         Instance = this;
@@ -47,9 +49,14 @@ public class EventManager : MonoBehaviour
         EventWordSelected?.Invoke();
     }
 
+    public void WordRecieved(string word)
+    {
+        EventWordRecieved?.Invoke(word);
+    }
+
     public void WordInputGiven(string word)
     {
         EventWordInputGiven?.Invoke(word);
     }
-    
+
 }
