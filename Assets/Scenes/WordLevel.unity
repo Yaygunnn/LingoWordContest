@@ -281,6 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 657460538}
   - component: {fileID: 657460539}
+  - component: {fileID: 657460540}
   m_Layer: 0
   m_Name: WordGiver
   m_TagString: Untagged
@@ -313,6 +314,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed6468931a36a9749bf4ece35d6b5c64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 657460540}
+--- !u!114 &657460540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657460537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a2b3ef8ae063aa45b9c56ff2adde38c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &703448820

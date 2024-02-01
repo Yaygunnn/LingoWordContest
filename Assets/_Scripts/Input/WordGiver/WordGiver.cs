@@ -8,6 +8,8 @@ public class WordGiver : MonoBehaviour
 
     public static WordGiver Instance { get; private set; }
 
+    [SerializeField] private WordGiverView view;
+
     private void Awake()
     {
         Instance = this;
@@ -26,11 +28,20 @@ public class WordGiver : MonoBehaviour
     {
         if(IsPlayerTurn)
         {
-            IsPlayerTurn = false;
-            EventManager.Instance.WordInputGiven(word);
-            return true;
+            if(CheckWordLength(word))
+            {
+                IsPlayerTurn = false;
+                EventManager.Instance.WordInputGiven(word);
+                return true;
+            }
+            view.WrongNumberOfLetters();
         }
         return false;
+    }
+
+    public bool CheckWordLength(string word)
+    {
+        return WordData.Instance.LetterNumber == word.Length;
     }
     private void StartPlayerTurn()
     {
