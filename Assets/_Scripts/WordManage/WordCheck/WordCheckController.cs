@@ -110,7 +110,7 @@ public class WordCheckController : MonoBehaviour
         return LetterCellStates;
     }
 
-    public E_CellState[] RecieveVisualInfo(string tryWord)
+    public E_CellState[] RecieveVisualInfo()
     {
         return model.e_CellStates;
     }

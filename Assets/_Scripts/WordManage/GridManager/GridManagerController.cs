@@ -41,7 +41,7 @@ public class GridManagerController : MonoBehaviour
         WriteRow(word);
 
         SetGridRowLetterInfo(word);
-        SetGridRowCellStateInfo(word);
+        SetGridRowCellStateInfo();
 
         view.PaintGridRowWithAnim(model.CurrentGridLine);
     }
@@ -74,10 +74,10 @@ public class GridManagerController : MonoBehaviour
         }
     }
 
-    private void SetGridRowCellStateInfo(string word)
+    private void SetGridRowCellStateInfo()
     {
-        E_CellState[] CellStates = WordCheckController.Instance.RecieveVisualInfo(word);
-        for (int letter = 0; letter < word.Length; letter++)
+        E_CellState[] CellStates = WordCheckController.Instance.RecieveVisualInfo();
+        for (int letter = 0; letter < WordData.Instance.LetterNumber; letter++)
         {
             model.LetterGrid[model.CurrentGridLine, letter].cellState = CellStates[letter];
         }
