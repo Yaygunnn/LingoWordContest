@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class VictoryView : MonoBehaviour
 {
+    [SerializeField] private GameObject EndResultPanel;
+
+    [SerializeField] private TextMeshProUGUI textMestPro;
+
+    private string VictoryText = "Victory";
+    
     public void ShowVictory()
     {
-        Debug.Log("Victory");
+        EndResultPanel.SetActive(true);
+        textMestPro.text = VictoryText;
     }
 }
