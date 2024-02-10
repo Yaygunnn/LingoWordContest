@@ -24,7 +24,7 @@ public class GridCreatorController : MonoBehaviour
     }
     public void CalculateModelValues()
     {
-        model.DistanceBetweenCells = model.SecondGridCell.transform.localPosition.x - model.FirstGridCell.transform.localPosition.x;
+        model.DistanceBetweenCells = model.CellImageTransform.sizeDelta.x + model.CellSpaceing;
 
         model.CellScale = model.FirstGridCell.transform.localScale;
 
@@ -63,8 +63,7 @@ public class GridCreatorController : MonoBehaviour
     }
     private void DestroyFirstandSecondGridCells()
     {
-        Destroy(model.FirstGridCell);
-        Destroy(model.SecondGridCell);
+        Destroy(model.FirstGridCell);        
     }
 
     private void AddToGridManagerLetterGrid(GameObject LetterCell, int xLeftToRight, int yTopToBottom)

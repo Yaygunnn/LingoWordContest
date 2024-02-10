@@ -6,7 +6,9 @@ public class GridCreatorModel : MonoBehaviour
 {
     [SerializeField] public GameObject FirstGridCell;
 
-    [SerializeField] public GameObject SecondGridCell;
+    [SerializeField] public RectTransform CellImageTransform;
+
+    [SerializeField] public float CellSpaceing;
 
     [HideInInspector] public float DistanceBetweenCells;
 
