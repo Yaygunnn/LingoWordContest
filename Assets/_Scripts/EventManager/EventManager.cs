@@ -4,9 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class EventManager : MonoBehaviour
+public class EventManager 
 {
-    public static EventManager Instance { get; private set; }
+    private static EventManager instance;
+    public static EventManager Instance 
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new EventManager();
+            }
+            return instance;
+        }
+    }
 
 
     #region Events
@@ -27,16 +38,15 @@ public class EventManager : MonoBehaviour
     public event Action EventVictory;
 
     public event Action EventDefeat;
+
+    public event Action EventFirstTurnStart;
     #endregion
 
     #region Funcs
     private Func<E_WordAnswer> FuncRecieveWordAnswer;
 
     #endregion
-    private void Awake()
-    {
-        Instance = this;
-    }
+    
     #region CallEvents
     public void EndOfTurn()
     {
@@ -79,6 +89,11 @@ public class EventManager : MonoBehaviour
     public void Defeat()
     {
         EventDefeat?.Invoke();
+    }
+
+    public void FirstTurnStart()
+    {
+        EventFirstTurnStart?.Invoke();
     }
     #endregion
 

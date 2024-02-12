@@ -54,6 +54,10 @@ public class GridManagerController : MonoBehaviour
 
     public void FinishedPaintingFirstLetter()
     {
+        if (model.CurrentGridLine == 0)
+        {
+            EventManager.Instance.FirstTurnStart();
+        }
         EventManager.Instance.StartPlayerTurn();
     }
 

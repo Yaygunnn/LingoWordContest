@@ -10,7 +10,7 @@ public class Key : MonoBehaviour
 
     public virtual void ButtonClicked()
     {
-        KeyManager.Instance.KeyPressed(key);
+        KeyManagerController.Instance.KeyPressed(key);
     }
     private void Start()
     {

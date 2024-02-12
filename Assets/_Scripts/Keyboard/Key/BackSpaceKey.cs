@@ -10,7 +10,7 @@ public class BackSpaceKey : Key
     }
     public void BackSpaceButtonClicked()
     {
-        KeyManager.Instance.BackSpaceKeyPressed();
+        KeyManagerController.Instance.BackSpaceKeyPressed();
     }
 
     public override void SetKey(char key)

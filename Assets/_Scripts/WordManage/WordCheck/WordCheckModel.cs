@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WordCheckModel : MonoBehaviour
+public class WordCheckModel 
 {
     public List<string> PreviousWordTrys = new List<string>();
 
