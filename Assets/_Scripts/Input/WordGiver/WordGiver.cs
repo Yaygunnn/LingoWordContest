@@ -17,11 +17,14 @@ public class WordGiver : MonoBehaviour
     void Start()
     {
         EventManager.Instance.EventStartPlayerTurn += StartPlayerTurn;
+        EventManager.Instance.EventWordInputGiven += EndPlayerTurn;
     }
 
     private void OnDisable()
     {
         EventManager.Instance.EventStartPlayerTurn -= StartPlayerTurn;
+        EventManager.Instance.EventWordInputGiven -= EndPlayerTurn;
+
     }
 
     public bool TryToSendWord(string word)
@@ -30,7 +33,7 @@ public class WordGiver : MonoBehaviour
         {
             if(CheckWordLength(word))
             {
-                IsPlayerTurn = false;
+                EndPlayerTurn();
                 EventManager.Instance.WordInputGiven(word);
                 return true;
             }
@@ -47,5 +50,15 @@ public class WordGiver : MonoBehaviour
     {
         IsPlayerTurn = true;
     }
-    
+
+    private void EndPlayerTurn()
+    {
+        IsPlayerTurn = false;
+    }
+
+    private void EndPlayerTurn(string str)
+    {
+        EndPlayerTurn();
+    }
+
 }
