@@ -56,9 +56,9 @@ MonoBehaviour:
   heightPercentage: 0.277
   bottomOffset: 0.019
   lines:
-  - Keys: "qwertyu\u0131op"
-  - Keys: asdfghjkl
-  - Keys: zxcvbnm.
+  - Keys: "ertyu\u0131op\u011F\xFC"
+  - Keys: "asdfghjkl\u015Fi"
+  - Keys: "zcvbnm\xF6\xE7."
   KeyToLineRatio: 0.755
   WidhtToHeightRatio: 0.707
   xSpacing: 0.09
@@ -113,7 +113,7 @@ RectTransform:
   m_Children:
   - {fileID: 1283280159479894361}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
