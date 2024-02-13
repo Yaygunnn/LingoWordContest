@@ -14,7 +14,7 @@ public class WordCheckController : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
+    private void OnEnable()
     {
         EventManager.Instance.EventWordInputGiven += CheckWord;
         EventManager.Instance.SetFuncRecieveWordAnswer(GetWordAnswer);
@@ -32,6 +32,7 @@ public class WordCheckController : MonoBehaviour
     }
     private void CheckWord(string word)
     {
+        word = SetLetterNumberIfNull(word);
         model.wordAnswer = CheckAnswer(word);
         model.e_CellStates = SetCellStates(word);
         EventManager.Instance.WordRecieved(word);
@@ -39,6 +40,15 @@ public class WordCheckController : MonoBehaviour
         CalculatedFoundLetters(word);
     }
 
+    private string SetLetterNumberIfNull(string word)
+    {
+        if(word.Length!=WordData.Instance.GetWord().Length)
+        {
+            word = new string(' ', WordData.Instance.LetterNumber);
+            print(word.Length);
+        }
+        return word;
+    }
     private void CalculatedFoundLetters(string word)
     {
         Dictionary<int, char> WordFoundLetters = new Dictionary<int, char>();
