@@ -35,6 +35,30 @@ public class WordCheckController : MonoBehaviour
         model.wordAnswer = CheckAnswer(word);
         model.e_CellStates = SetCellStates(word);
         EventManager.Instance.WordRecieved(word);
+
+        CalculatedFoundLetters(word);
+    }
+
+    private void CalculatedFoundLetters(string word)
+    {
+        Dictionary<int, char> WordFoundLetters = new Dictionary<int, char>();
+        for (int i = 0; i < WordData.Instance.GetWord().Length; i++) 
+        {
+            if (WordData.Instance.GetWord()[i] == word[i])
+            {
+                WordFoundLetters.Add(i, word[i]);
+            }
+        }
+
+        if(WordFoundLetters.Count > model.FoundLetters.Count)
+        {
+            model.FoundLetters = WordFoundLetters;
+        }
+    }
+
+    public Dictionary<int,char> GetFoundLetters()
+    {
+        return model.FoundLetters;
     }
     private E_WordAnswer CheckAnswer(string tryWord)
     {

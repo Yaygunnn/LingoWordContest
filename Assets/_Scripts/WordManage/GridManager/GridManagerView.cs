@@ -64,7 +64,18 @@ public class GridManagerView : MonoBehaviour
 
     private IEnumerator PaintFirstLetter()
     {
-        model.LetterGrid[model.CurrentGridLine, 0].controller.WriteAndShowState(WordData.Instance.GetWord()[0]);
+        if (model.CurrentGridLine == 0)
+        {
+            model.LetterGrid[model.CurrentGridLine, 0].controller.WriteAndShowState(WordData.Instance.GetWord()[0]);
+
+        }
+        else
+        {
+            foreach(var element in WordCheckController.Instance.GetFoundLetters())
+            {
+                model.LetterGrid[model.CurrentGridLine, element.Key].controller.SetLetterCellFast(E_CellState.True, element.Value);
+            }
+        }
         yield return new WaitForSecondsRealtime(viewModel.WaitTimeAfterFirstLetter);
         
         controller.FinishedPaintingFirstLetter();

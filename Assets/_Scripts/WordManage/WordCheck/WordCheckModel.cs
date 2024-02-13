@@ -9,4 +9,6 @@ public class WordCheckModel
     public E_WordAnswer wordAnswer;
 
     public E_CellState[] e_CellStates = new E_CellState[WordData.Instance.LetterNumber];
+
+    public Dictionary<int, char> FoundLetters = new Dictionary<int, char>();
 }
