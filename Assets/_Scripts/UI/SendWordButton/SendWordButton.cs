@@ -22,8 +22,7 @@ public class SendWordButton : MonoBehaviour
     {
         if(IsPlayerTurn)
         {
-            KeyManagerController.Instance.TryToSendWord();
-            EndPlayerTurn();
+            KeyManagerController.Instance.TryToSendWord();           
         }      
     }
 
