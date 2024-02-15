@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirstGridCell: {fileID: 6120408629970172090}
   CellImageTransform: {fileID: 8088431576318584600}
-  CellSpaceing: 5
+  CellSpaceing: 16
   DistanceBetweenCells: 0
   WordLength: 0
   GridHight: 0
