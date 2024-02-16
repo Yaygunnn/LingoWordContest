@@ -18,5 +18,6 @@ public class KeyboardKey : MonoBehaviour
     private void ReadKeyFromTextMeshProAndSetKey()
     {
         key = GetComponentInChildren<TextMeshProUGUI>().text[0];
+        key = char.ToLower(key);
     }
 }
