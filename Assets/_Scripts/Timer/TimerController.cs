@@ -16,16 +16,18 @@ public class TimerController : MonoBehaviour
 
     private void StartTimer()
     {
-        model.TimerCoroutine = StartCoroutine(Timer(model.CountDown));
+        StartCoroutine(Timer(model.CountDown));
+        StartCoroutine(TimerFloatVersion(model.CountDown));
     }
 
     private void StopTimer(string word)
     {
-        StopCoroutine(model.TimerCoroutine);
+        StopAllCoroutines();
     }
     private IEnumerator Timer(int time)
     {
-        while(time > 0)
+        view.TimeChanged(time);
+        while (time > 0)
         {
             yield return new WaitForSecondsRealtime(1);
             time--;
@@ -40,5 +42,17 @@ public class TimerController : MonoBehaviour
     {
         EventManager.Instance.EventWordRecieved -= StopTimer;
         EventManager.Instance.EventStartPlayerTurn -= StartTimer;
+    }
+
+    private IEnumerator TimerFloatVersion(int time)
+    {
+        float MiniTime = (float)time;
+        float InitialTime = MiniTime;
+        while(time > 0)
+        {
+            MiniTime -= Time.deltaTime;
+            EventManager.Instance.RemainingTimeRatio(MiniTime / InitialTime);
+            yield return null;
+        }
     }
 }

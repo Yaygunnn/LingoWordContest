@@ -40,6 +40,8 @@ public class EventManager
     public event Action EventDefeat;
 
     public event Action EventFirstTurnStart;
+
+    public event Action<float> EventRemainingTimeRatio;
     #endregion
 
     #region Funcs
@@ -94,6 +96,11 @@ public class EventManager
     public void FirstTurnStart()
     {
         EventFirstTurnStart?.Invoke();
+    }
+
+    public void RemainingTimeRatio(float timeRatio)
+    {
+        EventRemainingTimeRatio?.Invoke(timeRatio);
     }
     #endregion
 
