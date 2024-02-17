@@ -29,8 +29,21 @@ public class KeyManagerController
     }
     public void KeyPressed(char key)
     {
+        if (IsWritingLengthReachedLimit())
+        {
+            return;
+        }
+        AddChar(key);
+    }
+
+    private void AddChar(char key)
+    {
         Writing += key;
         FireWritingChanged();
+    }
+    private bool IsWritingLengthReachedLimit()
+    {
+        return Writing.Length >= WordData.Instance.LetterNumber;
     }
 
     public void BackSpaceKeyPressed()
