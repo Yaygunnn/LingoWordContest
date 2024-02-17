@@ -8,6 +8,10 @@ public class Test_SendWord : MonoBehaviour
     [SerializeField] private string word;
     [SerializeField] private bool SendWord;
 
+    private void Start()
+    {
+        Debug.Log("Word list length is " + WordData.Instance.WordList.Count);
+    }
     private void Update()
     {
         Realword = WordData.Instance.GetWord();
