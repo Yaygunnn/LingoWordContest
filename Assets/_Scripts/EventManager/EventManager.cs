@@ -42,6 +42,8 @@ public class EventManager
     public event Action EventFirstTurnStart;
 
     public event Action<float> EventRemainingTimeRatio;
+
+    public event Action<int> EventSetCountDownTime;
     #endregion
 
     #region Funcs
@@ -101,6 +103,11 @@ public class EventManager
     public void RemainingTimeRatio(float timeRatio)
     {
         EventRemainingTimeRatio?.Invoke(timeRatio);
+    }
+
+    public void SetCountDownTime(int countDownTime)
+    {
+        EventSetCountDownTime?.Invoke(countDownTime);
     }
     #endregion
 

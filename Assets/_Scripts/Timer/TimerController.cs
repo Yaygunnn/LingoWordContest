@@ -12,6 +12,7 @@ public class TimerController : MonoBehaviour
     {
         EventManager.Instance.EventWordRecieved += StopTimer;
         EventManager.Instance.EventStartPlayerTurn += StartTimer;
+        EventManager.Instance.EventSetCountDownTime += SetCountDownTime;
     }
 
     private void StartTimer()
@@ -42,6 +43,8 @@ public class TimerController : MonoBehaviour
     {
         EventManager.Instance.EventWordRecieved -= StopTimer;
         EventManager.Instance.EventStartPlayerTurn -= StartTimer;
+        EventManager.Instance.EventSetCountDownTime -= SetCountDownTime;
+
     }
 
     private IEnumerator TimerFloatVersion(int time)
@@ -54,5 +57,10 @@ public class TimerController : MonoBehaviour
             EventManager.Instance.RemainingTimeRatio(MiniTime / InitialTime);
             yield return null;
         }
+    }
+
+    private void SetCountDownTime(int time)
+    {
+        model.CountDown = time;
     }
 }
