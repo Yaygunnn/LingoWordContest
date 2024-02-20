@@ -31,24 +31,24 @@ public class LetterCellController : MonoBehaviour
         switch (cellState)
         {
             case E_CellState.Standart:
-                ChangeColor(model.StandartMaterial); 
-                break;
-            case E_CellState.True:
-                ChangeColor(model.TrueMaterial);
-                break;
-            case E_CellState.False:
-                ChangeColor(model.FalseMaterial);
-                break;
-            case E_CellState.MissPlaced:
-                ChangeColor(model.MissPlaceMaterial); 
-                break;
-            default:
-                break;        
+            SetSprite(model.StandartSprite);
+            break;
+        case E_CellState.True:
+            SetSprite(model.TrueSprite);
+            break;
+        case E_CellState.False:
+            SetSprite(model.FalseSprite);
+            break;
+        case E_CellState.MissPlaced:
+            SetSprite(model.MissPlaceSprite);
+            break;
+        default:
+            break;
         }
     }
-    
-    private void ChangeColor(Material material)
+    private void SetSprite(Sprite sprite)
     {
-        model.image.material = material;
+        model.image.sprite = sprite;
     }
+
 }

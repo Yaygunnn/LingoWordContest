@@ -9,9 +9,10 @@ public class LetterCellModel : MonoBehaviour
     [SerializeField] public TextMeshProUGUI textMestPro;
     [SerializeField] public Image image;
 
-    [SerializeField] public Material StandartMaterial;
-    [SerializeField] public Material TrueMaterial;
-    [SerializeField] public Material FalseMaterial;
-    [SerializeField] public Material MissPlaceMaterial;
+    [SerializeField] public Sprite StandartSprite;
+    [SerializeField] public Sprite TrueSprite;
+    [SerializeField] public Sprite FalseSprite;
+    [SerializeField] public Sprite MissPlaceSprite;
+    
 
 }

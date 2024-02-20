@@ -52,6 +52,10 @@ MonoBehaviour:
   TrueMaterial: {fileID: 2100000, guid: 8606e43f69d81b34782f8468ca4ecfd5, type: 2}
   FalseMaterial: {fileID: 2100000, guid: 62342ce13a08b79459a9a8f06106d68a, type: 2}
   MissPlaceMaterial: {fileID: 2100000, guid: f8ee784368e7b9149b7861b3cea0048c, type: 2}
+  StandartSprite: {fileID: 21300000, guid: c61abdb69f9255e4ab912cfc0b3c789a, type: 3}
+  TrueSprite: {fileID: 21300000, guid: 045d2360ed133a34689dfaa269249e66, type: 3}
+  FalseSprite: {fileID: 21300000, guid: b5136876f4d214b42ab9019a61978ffb, type: 3}
+  MissPlaceSprite: {fileID: 21300000, guid: cf9b0c602aaae6f45b3c0f3720898d87, type: 3}
 --- !u!114 &4982088224999483748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +216,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8196830556847452907}
     m_Modifications:
+    - target: {fileID: 1133341750170049499, guid: 4fee4c446de55014882c9e4001fcca75, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133341750170049499, guid: 4fee4c446de55014882c9e4001fcca75, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e8eee31b800ae6d48a54a925358c2c8c, type: 3}
+    - target: {fileID: 1133341750170049499, guid: 4fee4c446de55014882c9e4001fcca75, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133341750170049499, guid: 4fee4c446de55014882c9e4001fcca75, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133341750170049499, guid: 4fee4c446de55014882c9e4001fcca75, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133341750170049499, guid: 4fee4c446de55014882c9e4001fcca75, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1133341750170049499, guid: 4fee4c446de55014882c9e4001fcca75, type: 3}
+      propertyPath: m_FillOrigin
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2275073991195787648, guid: 4fee4c446de55014882c9e4001fcca75, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
