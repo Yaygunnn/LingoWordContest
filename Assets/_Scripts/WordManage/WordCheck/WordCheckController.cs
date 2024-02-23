@@ -38,6 +38,7 @@ public class WordCheckController : MonoBehaviour
         EventManager.Instance.WordRecieved(word);
 
         CalculatedFoundLetters(word);
+        WordRecorder.Instance.RecordWordAndCellState(word, model.e_CellStates);
     }
 
     private string SetLetterNumberIfNull(string word)
