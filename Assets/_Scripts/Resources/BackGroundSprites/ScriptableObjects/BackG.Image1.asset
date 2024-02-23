@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a2d1d9a425e2543a656ceb0c171661, type: 3}
   m_Name: BackG.Image1
   m_EditorClassIdentifier: 
-  backgroundSprite: {fileID: 21300000, guid: 8124d16644c2dc948a72ad567f68ff27, type: 3}
+  backgroundSprite: {fileID: 21300000, guid: b4212c956002a824c80f9042512538aa, type: 3}
