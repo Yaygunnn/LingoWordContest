@@ -51,4 +51,13 @@ public class LetterCellController : MonoBehaviour
         model.image.sprite = sprite;
     }
 
+    public RectTransform GetImageTransform()
+    {
+        return model.image.rectTransform;
+    }
+    public void SetScale(float scale)
+    {
+        model.image.rectTransform.sizeDelta = new Vector2(scale, scale);
+    }
+
 }
