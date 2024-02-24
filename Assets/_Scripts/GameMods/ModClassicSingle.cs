@@ -17,13 +17,21 @@ public class ModClassicSingle : MonoBehaviour
     void Start()
     {
         EventManager.Instance.EventEndOfTurn += DecideEndOfTurn;
+        EventManager.Instance.SetFuncIsResultVictory(IsVictory);
+        EventManager.Instance.NewRound();
         Invoke("GoNextTurn", 0.5f);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        EventManager.Instance.EventEndOfTurn -= DecideEndOfTurn;
+        EventManager.Instance.UnSetFuncIsResultVictory(IsVictory);
+
+    }
+
+    private bool IsVictory()
+    {
+        return model.IsVictory;
     }
 
     private void DecideEndOfTurn()
@@ -55,10 +63,12 @@ public class ModClassicSingle : MonoBehaviour
     }
     private void Victory()
     {
+        model.IsVictory = true;
         EventManager.Instance.Victory();
     }
     private void Defeat()
     {
+        model.IsVictory = false;
         EventManager.Instance.Defeat();
     }
     private bool HaveTrialAttempts()
@@ -72,8 +82,5 @@ public class ModClassicSingle : MonoBehaviour
         EventManager.Instance.PrepareNextTurn();
     }
 
-    private void OnDisable()
-    {
-        EventManager.Instance.EventEndOfTurn -= DecideEndOfTurn;
-    }
+    
 }

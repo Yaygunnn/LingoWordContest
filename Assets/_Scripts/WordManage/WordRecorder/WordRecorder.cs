@@ -20,6 +20,11 @@ public class WordRecorder
 
     private WordRecorderModel model = new WordRecorderModel();
 
+    public WordRecorder()
+    {
+        EventManager.Instance.EventNewRound += ResetRecord;
+    }
+
     public void RecordWordAndCellState(string word , E_CellState[] cellStates)
     {
         S_CharRecord[] record = new S_CharRecord[word.Length];
@@ -31,7 +36,16 @@ public class WordRecorder
         }
 
         model.record.Add(record);
-        Debug.Log(model.record.Count);
+    }
+
+    public int GetRecordLength()
+    {
+        return model.record.Count;
+    }
+
+    private void ResetRecord()
+    {
+        model.record.Clear();
     }
     
 }

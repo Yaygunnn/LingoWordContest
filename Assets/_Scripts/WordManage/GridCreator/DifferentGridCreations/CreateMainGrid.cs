@@ -6,8 +6,6 @@ public class CreateMainGrid : MonoBehaviour
 {
     [SerializeField] private LetterCellController letterCellController;
 
-    [SerializeField] private GameObject ParentObject;
-
     [SerializeField] float Spacing;
 
     private void Start()

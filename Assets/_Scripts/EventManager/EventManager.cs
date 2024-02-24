@@ -44,10 +44,14 @@ public class EventManager
     public event Action<float> EventRemainingTimeRatio;
 
     public event Action<int> EventSetCountDownTime;
+
+    public event Action EventNewRound;
     #endregion
 
     #region Funcs
     private Func<E_WordAnswer> FuncRecieveWordAnswer;
+
+    private Func<bool> FuncIsResultVictory;
 
     #endregion
     
@@ -109,6 +113,12 @@ public class EventManager
     {
         EventSetCountDownTime?.Invoke(countDownTime);
     }
+
+    public void NewRound()
+    {
+        EventNewRound?.Invoke();
+    }
+
     #endregion
 
     #region Call&SetFuncs
@@ -137,6 +147,34 @@ public class EventManager
         if(FuncRecieveWordAnswer.GetInvocationList().Contains(funci))
         {
             FuncRecieveWordAnswer = null;
+        }
+    }
+
+    public void SetFuncIsResultVictory(Func<bool> func)
+    {
+        FuncIsResultVictory = func;
+    }
+
+    public bool IsResultVictory()
+    {
+        try
+        {
+            return FuncIsResultVictory();
+
+        }
+        catch (Exception ex)
+        {
+            Debug.Log(ex + "FuncIsResultVictory is not set");
+        }
+
+        return false;
+    }
+
+    public void UnSetFuncIsResultVictory(Func<bool> funci)
+    {
+        if (FuncIsResultVictory.GetInvocationList().Contains(funci))
+        {
+            FuncIsResultVictory = null;
         }
     }
 

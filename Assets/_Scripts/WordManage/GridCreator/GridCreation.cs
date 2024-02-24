@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class GridCreation : MonoBehaviour
 {
     private static float CellSize;
-
-    private static GameObject parent;
     public static void CreateGrid(GridData gridData)
     {
         CreateLetterGrid(gridData);

@@ -4,4 +4,6 @@ using System.Collections.Generic;
 public class ClassicSingleModel 
 {
     public int TrialAttempts = 5;
+
+    public bool IsVictory;
 }
