@@ -6,7 +6,7 @@ public class LetterCellController : MonoBehaviour
 {
     [SerializeField] private LetterCellModel model;
 
-    private void Start()
+    private void Awake()
     {
         SetGridState(E_CellState.Standart);
     }

@@ -64,7 +64,7 @@ public class CreateEndGameGrid : MonoBehaviour
 
         gridData.Spacing = Spacing;
 
-        gridData.SendGridData = Empty;
+        gridData.SendGridData = ShowRecord.ShowCellAccordingToRecord;
 
         return gridData;
     }
@@ -82,9 +82,5 @@ public class CreateEndGameGrid : MonoBehaviour
             length++;
         }
         return length;
-    }
-
-    private void Empty(LetterCellController i, int y, int z)
-    {
     }
 }

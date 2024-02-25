@@ -38,6 +38,11 @@ public class WordRecorder
         model.record.Add(record);
     }
 
+    public S_CharRecord GetCellRecord(int y, int x)
+    {
+        return model.record[y][x];
+    }
+
     public int GetRecordLength()
     {
         return model.record.Count;
