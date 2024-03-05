@@ -172,10 +172,11 @@ public class EventManager
 
     public void UnSetFuncIsResultVictory(Func<bool> funci)
     {
-        if (FuncIsResultVictory.GetInvocationList().Contains(funci))
+        if (FuncIsResultVictory != null)
         {
             FuncIsResultVictory = null;
         }
+
     }
 
     #endregion
