@@ -20,17 +20,14 @@ public class WordSelectorController : MonoBehaviour
 
     private void TyrToSelectWord(int letternumber)
     {
-        if(ControlFilePath(letternumber))
+        string[] lines = TextAssetReader.Instance.GetWordArray(letternumber);
+
+        if (StringHasWords(lines))
         {
-            string[] lines = File.ReadAllLines(model.FilePaths[letternumber]);
-            
-            if(StringHasWords(lines))
-            {
-                string word = SelectRandomWord(lines);
-                SendWordData( word);
-                SendWordList(lines);
-                FireEventWordSelected();
-            }
+            string word = SelectRandomWord(lines);
+            SendWordData(word);
+            SendWordList(lines);
+            FireEventWordSelected();
         }
     }
 
