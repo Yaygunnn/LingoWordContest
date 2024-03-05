@@ -7,7 +7,6 @@ using System.Linq;
 public class WordSelectorController : MonoBehaviour
 {
     public static WordSelectorController Instance { get; private set; }
-    [SerializeField] private WordSelectorModel model;
     private void Awake()
     {
         Instance = this;
@@ -55,21 +54,6 @@ public class WordSelectorController : MonoBehaviour
             return true;
         }
         Debug.Log("No words in filepath");
-        return false;
-    }
-    private bool ControlFilePath(int letternumber)
-    {
-        if (!model.FilePaths.ContainsKey(letternumber))
-        {
-            Debug.Log("No letter number in dictionary");
-            return false;
-        }
-
-        if (File.Exists(model.FilePaths[letternumber])) 
-        {
-            return true;
-        }
-        Debug.Log("No File Path In Dictionary");
         return false;
     }
 
