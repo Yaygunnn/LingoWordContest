@@ -10,6 +10,8 @@ public class GridCreation : MonoBehaviour
     public static void CreateGrid(GridData gridData)
     {
         CreateLetterGrid(gridData);
+
+        DestroyInitialCell(gridData);
     }
 
     private static void CreateLetterGrid(GridData gridData)
@@ -26,7 +28,10 @@ public class GridCreation : MonoBehaviour
             }
         }
     }
-
+    private static void DestroyInitialCell(GridData gridData)
+    {
+        Destroy(gridData.CellPrefab.gameObject);
+    }
     private static void SetCellTransform(GridData gridData, LetterCellController LetterCell, int x, int y)
     {
         CalculateGridSize(gridData);
