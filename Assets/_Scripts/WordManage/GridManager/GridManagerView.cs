@@ -40,7 +40,7 @@ public class GridManagerView : MonoBehaviour
 
     private void PaintGrindCellWithAnim(int GridRow, int GridCol)
     {
-        model.LetterGrid[GridRow, GridCol].controller.SetGridState(model.LetterGrid[GridRow, GridCol].cellState);
+        model.LetterGrid[GridRow, GridCol].controller.SetGridStateWithAnim(model.LetterGrid[GridRow, GridCol].cellState);
     }
 
     private IEnumerator PaintGridRowIEnumerator(int GridRow)
@@ -53,8 +53,8 @@ public class GridManagerView : MonoBehaviour
         for(int i = 0; i<model.LetterGrid.GetLength(1);i++)
         {
             yield return new WaitForSecondsRealtime(viewModel.PaintRowWaitTimeEveryLetter);
-            
-            model.LetterGrid[GridRow, i].controller.SetGridState(model.LetterGrid[GridRow,i].cellState);
+
+            PaintGrindCellWithAnim(GridRow, i);
         }
 
         yield return new WaitForSecondsRealtime(viewModel.PaintRowWaitTimeEnd);

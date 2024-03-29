@@ -26,7 +26,13 @@ public class LetterCellController : MonoBehaviour
         WriteLetter(letter);
         SetGridState(state);
     }
-    public void SetGridState(E_CellState cellState)
+
+    public void SetGridStateWithAnim(E_CellState state)
+    {
+        SetGridState(state);
+        SoundManager.CellStateSound(state);
+    }
+    private void SetGridState(E_CellState cellState)
     {
         switch (cellState)
         {
