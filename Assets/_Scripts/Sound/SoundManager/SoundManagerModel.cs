@@ -8,4 +8,8 @@ public class SoundManagerModel : MonoBehaviour
 
 
     [SerializeField] public AudioEvent CellTrueSound;
+    [SerializeField] public AudioEvent CellStandartSound;
+    [SerializeField] public AudioEvent CellFalseSound;
+    [SerializeField] public AudioEvent CellMissPlacedSound;
+
 }

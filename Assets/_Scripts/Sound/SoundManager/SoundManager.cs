@@ -29,6 +29,15 @@ public class SoundManager : MonoBehaviour
             case E_CellState.True:
                 model.CellTrueSound.Play(model.SFXAudioSource);
                 break;
+            case E_CellState.False:
+                model.CellFalseSound.Play(model.SFXAudioSource);
+                break;
+            case E_CellState.Standart:
+                model.CellStandartSound.Play(model.SFXAudioSource);
+                break;
+            case E_CellState.MissPlaced:
+                model.CellMissPlacedSound.Play(model.SFXAudioSource);
+                break;
             default:
                 break;
         }

@@ -962,6 +962,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SFXAudioSource: {fileID: 123548846}
   CellTrueSound: {fileID: 11400000, guid: 410198c305a2496439002ce516fce50d, type: 2}
+  CellStandartSound: {fileID: 11400000, guid: 156952448f7462c43a7d7f924d044098, type: 2}
+  CellFalseSound: {fileID: 11400000, guid: e316341f4b0b24049a01184add75c13d, type: 2}
+  CellMissPlacedSound: {fileID: 11400000, guid: 99a50bec31fabb24bbcaae46c9a66acf, type: 2}
 --- !u!114 &1122621519
 MonoBehaviour:
   m_ObjectHideFlags: 0
