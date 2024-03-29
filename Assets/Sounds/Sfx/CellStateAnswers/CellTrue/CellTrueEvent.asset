@@ -10,12 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fced514396d593468e53dcdc55a28bc, type: 3}
-  m_Name: New Simple Audio Event
+  m_Name: CellTrueEvent
   m_EditorClassIdentifier: 
-  clips: []
-  volume:
-    minValue: 0
-    maxValue: 1.4823427
-  pitch:
-    minValue: 0.11656628
-    maxValue: 0.11656628
+  clips:
+  - {fileID: 8300000, guid: f137be944fef7fd42ace5b92a864f294, type: 3}
+  volume: 1
+  pitch: 1
