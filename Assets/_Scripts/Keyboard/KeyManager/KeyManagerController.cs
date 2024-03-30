@@ -31,9 +31,12 @@ public class KeyManagerController
     {
         if (IsWritingLengthReachedLimit())
         {
+            SoundManager.KeyPressFail();
             return;
         }
+        
         AddChar(key);
+        SoundManager.KeyPress();
     }
 
     private void AddChar(char key)
@@ -52,6 +55,11 @@ public class KeyManagerController
         {
             Writing = Writing.Substring(0, Writing.Length - 1);
             FireWritingChanged();
+            SoundManager.KeyDelete();
+        }
+        else
+        {
+            SoundManager.KeyDeleteFail();
         }
     }
 

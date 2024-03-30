@@ -21,7 +21,7 @@ public class SoundManager : MonoBehaviour
             model = GetComponent<SoundManagerModel>();
         }
     }
-
+    #region CellState
     public static void CellStateSound(E_CellState cellState)
     {
         switch (cellState)
@@ -42,5 +42,27 @@ public class SoundManager : MonoBehaviour
                 break;
         }
     }
-    
+    #endregion
+
+    #region KeyBoard;
+    public static void KeyPress()
+    {
+        model.KeyPress.Play(model.SFXAudioSource);
+    }
+
+    public static void KeyPressFail()
+    {
+        model.KeyPressFail.Play(model.SFXAudioSource);
+    }
+
+    public static void KeyDelete()
+    {
+        model.KeyDelete.Play(model.SFXAudioSource);
+    }
+
+    public static void KeyDeleteFail()
+    {
+        model.KeyDeleteFail.Play(model.SFXAudioSource);
+    }
+    #endregion
 }
