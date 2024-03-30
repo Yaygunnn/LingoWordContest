@@ -965,6 +965,10 @@ MonoBehaviour:
   CellStandartSound: {fileID: 11400000, guid: 156952448f7462c43a7d7f924d044098, type: 2}
   CellFalseSound: {fileID: 11400000, guid: e316341f4b0b24049a01184add75c13d, type: 2}
   CellMissPlacedSound: {fileID: 11400000, guid: 99a50bec31fabb24bbcaae46c9a66acf, type: 2}
+  KeyPress: {fileID: 11400000, guid: 4a7b056716c06f84c82e20bce801b110, type: 2}
+  KeyPressFail: {fileID: 11400000, guid: a96b2b1adc573c84d9160a004d361030, type: 2}
+  KeyDelete: {fileID: 11400000, guid: e6adf7f2099229a49855243142c935bc, type: 2}
+  KeyDeleteFail: {fileID: 11400000, guid: 2bc697a03d62f8d4abe08000efdf6450, type: 2}
 --- !u!114 &1122621519
 MonoBehaviour:
   m_ObjectHideFlags: 0
