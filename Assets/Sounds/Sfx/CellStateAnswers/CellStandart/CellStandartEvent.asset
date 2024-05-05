@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CellStandartEvent
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: f137be944fef7fd42ace5b92a864f294, type: 3}
-  volume: 0.59
-  pitch: 0.61
+  - {fileID: 8300000, guid: 78d7831386c3b3649a1fc05a2f3561b5, type: 3}
+  volume: 0
+  pitch: 1

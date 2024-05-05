@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CellMissPlacedEvent
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: f137be944fef7fd42ace5b92a864f294, type: 3}
+  - {fileID: 8300000, guid: 544e7f91b4786a74fa63053f9472cb27, type: 3}
   volume: 1
-  pitch: 1.68
+  pitch: 1
