@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KeyPressEvent
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: f137be944fef7fd42ace5b92a864f294, type: 3}
+  - {fileID: 8300000, guid: 80c078a7fdcc6b54fab4ff5fab77f34e, type: 3}
   minVolume: 1
   maxVolume: 1
   minPitch: 1
