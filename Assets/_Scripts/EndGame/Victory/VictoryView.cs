@@ -9,7 +9,7 @@ public class VictoryView : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI textMestPro;
 
-    private string VictoryText = "Victory";
+    private string VictoryText = "iyisin iyi";
     
     public void ShowVictory()
     {

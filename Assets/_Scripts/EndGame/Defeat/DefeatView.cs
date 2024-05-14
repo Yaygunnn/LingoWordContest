@@ -9,7 +9,7 @@ public class DefeatView : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI textMestPro;
 
-    private string DefeatText = "REZÝÝÝLLLLLLLL";
+    private string DefeatText = "REZÝll";
     public void ShowDefeat()
     {
         EndResultPanel.SetActive(true);
