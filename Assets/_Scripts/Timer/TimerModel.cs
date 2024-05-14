@@ -2,6 +2,6 @@ using UnityEngine;
 
 public class TimerModel 
 {
-    public int CountDown = 10;
+    public int CountDown = 15;
     
 }
