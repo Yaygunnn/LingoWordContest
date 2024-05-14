@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class UI_VictoryStreak : MonoBehaviour
 {
+    [SerializeField] private GameObject TextObject;
     [SerializeField] private TextMeshProUGUI textMeshProUGUI;
-    private float ShowNewStreakTime = 2;
+    private float ShowOldStreakTime = 1f;
+    private float ShowNewStreakTime = 2f;
 
     private void OnEnable()
     {
@@ -31,10 +33,14 @@ public class UI_VictoryStreak : MonoBehaviour
 
     private void InvokeShowNewStreak()
     {
-        Invoke("ShowNewStreak", ShowNewStreakTime);
-        
+        Invoke("ShowOldStreak", ShowOldStreakTime);
+        Invoke("ShowNewStreak", ShowNewStreakTime);      
     }
 
+    private void ShowOldStreak()
+    {
+        TextObject.SetActive(true);
+    }
     private void ShowNewStreak()
     {
         SetTestAccordingToStreak();
