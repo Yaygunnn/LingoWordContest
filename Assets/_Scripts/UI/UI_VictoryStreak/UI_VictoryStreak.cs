@@ -8,7 +8,8 @@ public class UI_VictoryStreak : MonoBehaviour
     [SerializeField] private GameObject TextObject;
     [SerializeField] private TextMeshProUGUI textMeshProUGUI;
     private float ShowOldStreakTime = 1f;
-    private float ShowNewStreakTime = 2f;
+    private float DeletestreakTime = 2f;
+    private float ShowNewStreakTime = 2.5f;
 
     private void OnEnable()
     {
@@ -34,12 +35,17 @@ public class UI_VictoryStreak : MonoBehaviour
     private void InvokeShowNewStreak()
     {
         Invoke("ShowOldStreak", ShowOldStreakTime);
+        Invoke("DeleteStreakText", DeletestreakTime);
         Invoke("ShowNewStreak", ShowNewStreakTime);      
     }
 
     private void ShowOldStreak()
     {
         TextObject.SetActive(true);
+    }
+    private void DeleteStreakText()
+    {
+        textMeshProUGUI.text = "";
     }
     private void ShowNewStreak()
     {
